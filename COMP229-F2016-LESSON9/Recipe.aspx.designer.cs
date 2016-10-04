@@ -10,6 +10,6 @@
 namespace COMP229_F2016_LESSON9 {
     
     
-    public partial class _Default {
+    public partial class Recipe {
     }
 }
