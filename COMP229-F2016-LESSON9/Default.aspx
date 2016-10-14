@@ -7,6 +7,6 @@
       <%-- This is the default Recipe Page --%>
     <h1 style=" color:black">Recipe Book Tutorials - Hassan Kobeissi</h1>
     <p>Welcome to my cooking guide! This website will take you through the wonderful guide of marvelous different dishes and servings.</p>
-     
+    
 
 </asp:Content>
