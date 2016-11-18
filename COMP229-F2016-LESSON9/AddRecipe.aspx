@@ -51,7 +51,7 @@
    
     <br />  
      
-   <asp:button runat="server" Text="Submit" BackColor="lightblue" ForeColor="black" ID="btnSubmit" OnClick="btnSubmit_Click" />
+   <asp:button runat="server" Text="Submit" BackColor="lightblue" ForeColor="black" ID="btnSubmit" OnClick="btnSubmit_Click" OnClientClick="list" />
    &nbsp
    <asp:button runat="server" Text="Cancel" BackColor="lightblue" ForeColor="black" ID="Cancel" OnClick="btnCancel_Click" UseSubmitBehavior="False" />
    

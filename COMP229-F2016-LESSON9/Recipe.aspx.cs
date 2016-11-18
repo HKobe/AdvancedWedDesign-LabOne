@@ -11,7 +11,9 @@ namespace COMP229_F2016_LESSON9
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            List<StoreRecipeList> tempList = (List<StoreRecipeList>)Application["Recipes"];
+            GridView1.DataSource = tempList;
+            GridView1.DataBind();
         }
     }
 }

@@ -55,6 +55,7 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Default.aspx"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                         <li><a runat="server" href="Recipe.aspx"><i class="fa fa-book" aria-hidden="true"></i> Recipes</a></li>
+                        <li><a runat="server" href="RecipeDetails.aspx"><i class="fa fa-book" aria-hidden="true"></i>Recipe Details</a></li>
                         <li><a runat="server" href="AddRecipe.aspx"><i class="fa fa-plus" aria-hidden="true"></i> Add Recipes</a></li>
                         <li><a runat="server" href="Search.aspx"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
 

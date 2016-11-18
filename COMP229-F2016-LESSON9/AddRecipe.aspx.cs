@@ -71,6 +71,17 @@ namespace COMP229_F2016_LESSON9
         {
             if (Page.IsValid)
             {
+                List<StoreRecipeList> tempList = (List<StoreRecipeList>)Application["Recipes"];
+                StoreRecipeList tempRecipe = new StoreRecipeList();
+                tempRecipe.NameOfRecipe = RecipeTxtBox.Text;
+                tempRecipe.SubmittedBy = SubmittedByTxtbox.Text;
+                tempRecipe.Category = CategoryTxtBox.Text;
+                tempRecipe.CookingTime = CookingTimeTxtBox.Text;
+                tempRecipe.NumberOfServings = NumberOfServingsTxtBox.Text;
+                tempRecipe.RecipeDescription = RecipeDescriptionTxtBox.Text;
+                tempList.Add(tempRecipe);
+                Application["Recipes"] = tempList;
+
                 btnSubmit.Text = "Submit";
             }
             else

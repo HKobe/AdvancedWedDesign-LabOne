@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +14,14 @@ namespace COMP229_F2016_LESSON9
     {
         void Application_Start(object sender, EventArgs e)
         {
+            
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleConfig.RegisterBundles(BundleTable.Bundles); 
+            if(Application["Recipes"] == null)
+            {
+                Application["Recipes"] = new List<StoreRecipeList>();
+            }           
         }
     }
 }
