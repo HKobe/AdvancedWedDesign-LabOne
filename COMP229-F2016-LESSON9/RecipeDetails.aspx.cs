@@ -12,12 +12,14 @@ namespace COMP229_F2016_LESSON9
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        private SqlConnection conn = new SqlConnection("Data Source = LAPTOP - LPU502DT\\SQLEXPRESS; Integrated Security = True;");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
 
             }
+            bindGrid();
         }
         private void bindGrid()
         {
@@ -56,7 +58,7 @@ namespace COMP229_F2016_LESSON9
 
         protected void GridView2_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            DataTable dt = ((DataSet)ViewState["Recipes"]).Tables["Recipes"];
+            DataTable dt = ((DataSet)ViewState["Recipes"]).Tables["Recipes"];//System.Null.Reference EDIT
             GridViewRow row = GridView2.Rows[e.RowIndex]; //GridView2 Row
             int newRecipeID = Convert.ToInt32(((TextBox)row.Cells[0].Controls[1]).Text);
             string newRecipeName = (((TextBox)row.Cells[1].Controls[1]).Text);
@@ -64,6 +66,11 @@ namespace COMP229_F2016_LESSON9
             dt.Rows[e.RowIndex]["NameOfRecipe"] = newRecipeName;
             GridView2.EditIndex = -1;
             bindGrid();
+
+
+            SqlCommand cmd = new SqlCommand("update Recipe set RECIPEID='" + newRecipeID + "',RECIPENAME='" + newRecipeName, conn);
+
+
         }
     }
       /* protected void departmentsGrid_RowUpdating(object sender, GridViewUpdateEventArgs e)
