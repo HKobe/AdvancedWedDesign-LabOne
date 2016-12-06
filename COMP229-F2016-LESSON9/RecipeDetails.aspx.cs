@@ -45,7 +45,7 @@ namespace COMP229_F2016_LESSON9
                 catch (Exception e)
                 {
 
-                    lblResult.Text = e.Message;
+                    Response.Write( e.Message);
                 }
                 ViewState["Recipes"] = dataSet;
             }

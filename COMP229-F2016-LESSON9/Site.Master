@@ -73,6 +73,7 @@
                 
             <hr />
             <footer>
+
                 <p>&copy; <%: DateTime.Now.Year %> - Hassan Kobeissi - 300847239 - Lab2</p>
             </footer>
         </div>

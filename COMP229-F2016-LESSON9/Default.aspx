@@ -5,8 +5,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
       <%-- This is the default Recipe Page --%>
-    <h1 style=" color:black">Recipe Book Tutorials - Hassan Kobeissi</h1>
-    <p>Welcome to my cooking guide! This website will take you through the wonderful guide of marvelous different dishes and servings.</p>
-    
+    <h1 style=" color:black">Recipe Book Tutorials - Hassan Kobeissi</h1>      
+    <!--<asp:Label runat="server" ID="userLabel"></asp:Label> <br />  To Display user name during login-->
+    <p>Welcome to my cooking guide! This website will take you through the wonderful guide of marvelous different dishes and servings.</p><br />
+    <a href="RegistrationPage.aspx">New Users Register Here!</a><br /><br />
 
 </asp:Content>

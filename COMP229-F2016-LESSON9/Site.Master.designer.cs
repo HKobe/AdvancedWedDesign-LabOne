@@ -11,6 +11,7 @@ namespace COMP229_F2016_LESSON9 {
     
     
     public partial class SiteMaster {
+
         
         /// <summary>
         /// MainContent control.
@@ -21,4 +22,5 @@ namespace COMP229_F2016_LESSON9 {
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
     }
+
 }

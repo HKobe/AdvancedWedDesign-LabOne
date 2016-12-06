@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,9 +12,11 @@ namespace COMP229_F2016_LESSON9
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+            //userLabel.Text = "Welcome:: " + Convert.ToString(Session["New"]);
             
-
-
         }
+
     }
 }
