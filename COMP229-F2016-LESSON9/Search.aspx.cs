@@ -3,7 +3,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data.OracleClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,7 +19,6 @@ namespace COMP229_F2016_LESSON9
             {
 
             }
-            LoadNames();
             
 
         }
@@ -28,68 +26,68 @@ namespace COMP229_F2016_LESSON9
 
         private void LoadCategories()
         {
-            DataTable category = new DataTable();
-            string connectionString = @"Data Source=LAPTOP-LPU502DT\SQLEXPRESS;Initial Catalog=Recipes;Integrated Security=True";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter("Select Category FROM Recipe", connection);
-                    adapter.Fill(category);
-                    DDLCat.DataSource = category;
-                    DDLCat.DataTextField = "Category";
-                    DDLCat.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    lblResult.Text = ex.Message;
-                }
-            }
+            //DataTable categoryID = new DataTable();
+            //string connectionString = @"Data Source=LAPTOP-LPU502DT\SQLEXPRESS;Initial Catalog=Recipes;Integrated Security=True";
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //    try
+            //    {
+            //       // SqlDataAdapter adapter = new SqlDataAdapter("Select CategoryID FROM Recipe", connection);
+            //        //adapter.Fill(categoryID);
+            //        //DDLCat.DataSource = category;
+            //        //DDLCat.DataTextField = "CategoryID";
+            //        //DDLCat.DataBind();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        lblResult.Text = ex.Message;
+            //    }
+            //}
 
             }
                     
         
             private void LoadSubmittedBy()
         { 
-            DataTable SubmittedBy = new DataTable();
-            string connectionString = @"Data Source=LAPTOP-LPU502DT\SQLEXPRESS;Initial Catalog=Recipes;Integrated Security=True";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter("Select SUBMITTEDBY FROM Recipe", connection);
-                    adapter.Fill(SubmittedBy);
-                    DDLCat.DataSource = SubmittedBy;
-                    DDLCat.DataTextField = "SubmittedBy";
-                    DDLCat.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    lblResult.Text = ex.Message;
-                }
+            //DataTable SubmittedBy = new DataTable();
+            //string connectionString = @"Data Source=LAPTOP-LPU502DT\SQLEXPRESS;Initial Catalog=Recipes;Integrated Security=True";
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //    try
+            //    {
+            //        SqlDataAdapter adapter = new SqlDataAdapter("Select SUBMITTEDBY FROM Recipe", connection);
+            //        adapter.Fill(SubmittedBy);
+            //        DDL.DataSource = SubmittedBy;
+            //        DDLCat.DataTextField = "SubmittedBy";
+            //        DDLCat.DataBind();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        lblResult.Text = ex.Message;
+            //    }
 
 
-            }
+            //}
         }
         private void LoadNames()
         {
-            DataTable NameOfRecipe = new DataTable();
-            string connectionString = @"Data Source=LAPTOP-LPU502DT\SQLEXPRESS;Initial Catalog=Recipes;Integrated Security=True";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter("Select NAMEOFRECIPE FROM Recipe", connection);
-                    adapter.Fill(NameOfRecipe);
-                    DDLCat.DataSource = NameOfRecipe;
-                    DDLCat.DataTextField = "NameOfRecipe";
-                    DDLCat.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    lblResult.Text = ex.Message;
-                }
-            }
+            //DataTable NameOfRecipe = new DataTable();
+            //string connectionString = @"Data Source=LAPTOP-LPU502DT\SQLEXPRESS;Initial Catalog=Recipes;Integrated Security=True";
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //    try
+            //    {
+            //        SqlDataAdapter adapter = new SqlDataAdapter("Select NAMEOFRECIPE FROM Recipe", connection);
+            //        adapter.Fill(NameOfRecipe);
+            //        DDLCat.DataSource = NameOfRecipe;
+            //        DDLCat.DataTextField = "NameOfRecipe";
+            //        DDLCat.DataBind();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        lblResult.Text = ex.Message;
+            //    }
+            //}
 
             }
         /// <summary>
@@ -97,25 +95,25 @@ namespace COMP229_F2016_LESSON9
         /// </summary>
         public void Method()
         {
-            string connectionString = "DATA SOURCE=oracle1.centennialcollege.ca:1521/SQLD;PASSWORD=password;USER ID=COMP214F16_003_P_8";
-            using (OracleConnection connection = new OracleConnection(connectionString))
-            {
+            //string connectionString = "DATA SOURCE=oracle1.centennialcollege.ca:1521/SQLD;PASSWORD=password;USER ID=COMP214F16_003_P_8";
+            //using (OracleConnection connection = new OracleConnection(connectionString))
+            //{
 
-                OracleCommand insert = new OracleCommand("insert into TABLE(name), @name", connection);
-                insert.Parameters.AddWithValue("@name", "Name.Text");
+            //    OracleCommand insert = new OracleCommand("insert into TABLE(name), @name", connection);
+            //    insert.Parameters.AddWithValue("@name", "Name.Text");
 
-                try
-                {
-                    connection.Open();
-                    insert.ExecuteNonQuery();
-                    Console.WriteLine("Connected");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+            //    try
+            //    {
+            //        connection.Open();
+            //        insert.ExecuteNonQuery();
+            //        Console.WriteLine("Connected");
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //    }
 
-            }
+            //}
         }
         /// <summary>
         /// Submit Button Event Handler
@@ -134,11 +132,11 @@ namespace COMP229_F2016_LESSON9
                 {
                     connection.Open();
                     SqlDataReader dr = select.ExecuteReader();
-                    lblResult.Text = "Added";
+                   // lblResult.Text = "Added";
                 }
                 catch (Exception ex)
                 {
-                    lblResult.Text = ex.Message;
+                    //lblResult.Text = ex.Message;
 
                 }
             }
@@ -153,15 +151,15 @@ namespace COMP229_F2016_LESSON9
 
         protected void DDLCat_DataBound(object sender, EventArgs e)
         {
-            DDLCat.Items.Insert(0, new ListItem("Select All", "0"));
+            //DDLCat.Items.Insert(0, new ListItem("Select All", "0"));
         }
         protected void DDLSub_DataBound(object sender, EventArgs e)
         {
-            DDLSub.Items.Insert(0, new ListItem("Select All", "0"));
+            //DDLSub.Items.Insert(0, new ListItem("Select All", "0"));
         }
         protected void DDLName_DataBound(object sender, EventArgs e)
         {
-            DDLName.Items.Insert(0, new ListItem("Select All", "0"));
+            //DDLName.Items.Insert(0, new ListItem("Select All", "0"));
         }
     }
 }

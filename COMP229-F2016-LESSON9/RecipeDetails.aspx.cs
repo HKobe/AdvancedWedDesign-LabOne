@@ -12,48 +12,60 @@ namespace COMP229_F2016_LESSON9
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        private SqlConnection conn = new SqlConnection("Data Source = LAPTOP - LPU502DT\\SQLEXPRESS; Integrated Security = True;");
+        private SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
 
             }
-            bindGrid();
+            try
+
+            {
+                //conn = new SqlConnection("Data Source = LAPTOP - LPU502DT\\SQLEXPRESS; Integrated Security = True;");
+                //bindGrid();
+            }
+            catch (Exception exx)
+            { }
+            
         }
-        private void bindGrid()
+        public void bindGrid()
         {
-            SqlConnection conn;
-            DataSet dataSet = new DataSet();
-            SqlDataAdapter adapter;
-            if (ViewState["Recipes"] == null)
+            try
             {
-                string connectionString =
-                    ConfigurationManager.ConnectionStrings["Table"].ConnectionString;
-                //initialize connection
-                try
+                SqlConnection conn;
+                DataSet dataSet = new DataSet();
+                SqlDataAdapter adapter;
+                if (true)// ViewState["Recipes"] == null
                 {
-                    conn = new SqlConnection(connectionString);
-                    adapter = new SqlDataAdapter("select RecipeID, Category, CookingTime, numberOfServings, recipeDescription from Table", conn);
+                    string connectionString =
+                        ConfigurationManager.ConnectionStrings["RecipesConnectionString"].ConnectionString;
+                    //initialize connection
+                    try
+                    {
+                        conn = new SqlConnection(connectionString);
+                        adapter = new SqlDataAdapter("select RecipeID, CategoryID, CookingTime, numberOfServings, recipeDescription from Table", conn);
 
-                    adapter.Fill(dataSet, "Table");
+                        adapter.Fill(dataSet, "Table");
 
-                    // adapter.SelectCommand.CommandText = "select EmployeeId, Name, MobilePhone from Employees";
-                    // adapter.Fill(dataSet, "Employees");
+                        // adapter.SelectCommand.CommandText = "select EmployeeId, Name, MobilePhone from Employees";
+                        // adapter.Fill(dataSet, "Employees");
 
+                    }
+                    catch (Exception e)
+                    {
+
+                        Response.Write(e.Message);
+                    }
+                    ViewState["Recipes"] = dataSet;
                 }
-                catch (Exception e)
+                else
                 {
-
-                    Response.Write( e.Message);
+                    dataSet = (DataSet)ViewState["Recipes"];
                 }
-                ViewState["Recipes"] = dataSet;
             }
-            else
-            {
-                dataSet = (DataSet)ViewState["Recipes"];
-            }
-
+            catch (Exception ee)
+            { }
         }
 
         protected void GridView2_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -73,17 +85,16 @@ namespace COMP229_F2016_LESSON9
 
         }
     }
-      /* protected void departmentsGrid_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            DataTable dt = ((DataSet)ViewState["DorknozzleDataSet"]).Tables["Departments"];
-            GridViewRow row = departmentsGrid.Rows[e.RowIndex]; //GridView Row 
-            int newDepartmentId = Convert.ToInt32(((TextBox)row.Cells[0].Controls[1]).Text);
-            string newDepartment = (((TextBox)row.Cells[1].Controls[1]).Text);
-            dt.Rows[e.RowIndex]["DepartmentID"] = newDepartmentId;
-            dt.Rows[e.RowIndex]["Department"] = newDepartment;
-            departmentsGrid.EditIndex = -1;
-            bindGrid();
-        }*/
+    /* protected void departmentsGrid_RowUpdating(object sender, GridViewUpdateEventArgs e)
+      {
+          DataTable dt = ((DataSet)ViewState["DorknozzleDataSet"]).Tables["Departments"];
+          GridViewRow row = departmentsGrid.Rows[e.RowIndex]; //GridView Row 
+          int newDepartmentId = Convert.ToInt32(((TextBox)row.Cells[0].Controls[1]).Text);
+          string newDepartment = (((TextBox)row.Cells[1].Controls[1]).Text);
+          dt.Rows[e.RowIndex]["DepartmentID"] = newDepartmentId;
+          dt.Rows[e.RowIndex]["Department"] = newDepartment;
+          departmentsGrid.EditIndex = -1;
+          bindGrid();
+      }*/
 
-    }
-    
+}

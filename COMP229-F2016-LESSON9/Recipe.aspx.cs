@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.OracleClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,9 +11,17 @@ namespace COMP229_F2016_LESSON9
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<StoreRecipeList> tempList = (List<StoreRecipeList>)Application["Recipes"];
-            GridView1.DataSource = tempList;
-            GridView1.DataBind();
+            
+            //List<StoreRecipeList> tempList = (List<StoreRecipeList>)Application["Recipes"];
+            //GridView2.DataSource = tempList;
+            //GridView2.DataBind();
+        }
+
+        protected void gatWithRecipeDetails()
+        {
+            string id = GridView2.SelectedRow.Cells[1].Text;
+            Response.Redirect("RecipeDetails.aspx?ID=" + id);
+
         }
     }
 }

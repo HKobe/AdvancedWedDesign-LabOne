@@ -4,11 +4,14 @@
 <%@ Page Title="Search" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="COMP229_F2016_LESSON9.Search" %>
 <%-- This is my Search Page --%>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    
+
+
     <h1>Search for the recipes you desire</h1>
-    
+  
     <asp:Label ID="lblResult" runat="server" Text="Label"></asp:Label>
    
+
+    
      <!--Drop DownLists with Default Text "All"-->
    
      <!--Submitted By DropDown-->
@@ -16,20 +19,20 @@
         <asp:ListItem Text="All"></asp:ListItem>  
         <asp:ListItem Text="Submitted By"></asp:ListItem>
     </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecipesConnectionString %>" SelectCommand="SELECT * FROM [Table]"></asp:SqlDataSource>
+    
+    
+    
     
     <!--Category DropDown -->
-    <asp:DropDownList ID="DDLCat" runat="server" DataSourceID="SqlDataSource2" DataTextField="CATEGORY" DataValueField="CATEGORY" OnDataBound="DDLCat_DataBound">
-        <asp:ListItem Text="All" Selected="True" ></asp:ListItem> 
-            <asp:ListItem Text="Category"></asp:ListItem>   
-                </asp:DropDownList>
+
        
      <!--Name DropDown -->
         <asp:DropDownList ID="DDLName" runat="server" DataSourceID="SqlDataSource2" DataTextField="NAMEOFRECIPE" DataValueField="NAMEOFRECIPE" OnSelectedIndexChanged="DDLName_SelectedIndexChanged" AppendDataBoundItems="true" OnDataBound="DDLName_DataBound">
     </asp:DropDownList>
 
-    <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Button" /><br />
+    <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Submit" /><br />
     
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecipesConnectionString %>" SelectCommand="SELECT * FROM [Table]"></asp:SqlDataSource>
     <asp:GridView runat="server" ID="SearchResultGridView" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataSourceID="SqlDataSource2" >
             <Columns>
              <asp:BoundField Visible="False" />
